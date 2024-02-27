@@ -1,0 +1,35 @@
+<%- include('../partials/header') %>
+<table id="interviews">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release<br>Year</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% interviewDoc.forEach(function(i) { %>
+        <tr>
+          <td><%= i.position %></td>
+          <td><%= i.pay %></td>
+          <td><%= i.location %></td>
+          <td><%= i.tips %></td>
+          <td><a href="/interviews/<%= i._id %>">DETAILS</a></td>
+        </tr>
+        <% }); %>
+      </tbody>
+    
+    </table>
+    
+    <%- include('../partials/footer') %>
+
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

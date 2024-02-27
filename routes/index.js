@@ -1,3 +1,4 @@
+var express = require('express');
 const router = require('express').Router();
 const passport = require('passport');
 
@@ -9,6 +10,9 @@ router.get('/', function(req, res) {
   // This could be a landing page, or just redirect to your main resource page which you'll have an a tag that makes 
   // a request to `/auth/google` route below
   //===============================================================================================
+res.render('index')
+
+
 });
 
 // Google OAuth login route
@@ -21,8 +25,8 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect : '/', // UPDATE THIS, where do you want the client to go after you login 
-    failureRedirect : '/' //  UPDATE THIS, where do you want the client to go if login fails
+    successRedirect : '/interviews', // UPDATE THIS, where do you want the client to go after you login 
+    failureRedirect : '/interviews' //  UPDATE THIS, where do you want the client to go if login fails
   }
 ));
 

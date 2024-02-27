@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+		<h2>Add Upcoming Interview </h2>
+		<form action="/interviews" method="POST">
+			<label>Position:
+				<input type="text" name="Position">
+			</label><br>
+			<label>Pay:
+				<input type="number" name="Pay">
+			</label><br>
+            <label for="when">When</label>
+            <input type="date" name="when" id="when"><br>
+			</label><br>
+			<label>Questions/Tips:
+				<input type="text" name="Questions/Tips">
+			</label><br>
+	
+			<button type="submit">Add Interview</button>
+		</form>
+<%- include('../partials/footer') %>

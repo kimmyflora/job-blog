@@ -1,5 +1,6 @@
 // load the env consts
 require('dotenv').config();
+const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -8,7 +9,10 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const passport = require('passport');
 const methodOverride = require('method-override');
+
+//connect to the routes 
 const indexRoutes = require('./routes/index');
+const interviewRouter = require('./routes/interviews');
 
 
 // create the Express app
@@ -31,6 +35,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+
 // mount the session middleware
 app.use(session({
   secret: process.env.SECRET,
@@ -51,6 +57,7 @@ app.use(function (req, res, next) {
 
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
+app.use('/interviews', interviewRouter);
 
 
 // invalid request, send 404 page
