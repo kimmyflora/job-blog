@@ -1,14 +1,16 @@
 <%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/style.css">
 <table id="interviews">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Release<br>Year</th>
+        <th>List of All Interviews</th>
+        <link rel="stylesheet" href="/stylesheets/style.css">
+        <a href="/interviews/new">Add Upcoming Interviews</a>
         <th></th>
       </tr>
     </thead>
     <tbody>
-      <% interviewDoc.forEach(function(i) { %>
+      <% interviewDocs.forEach(function(i) { %>
         <tr>
           <td><%= i.position %></td>
           <td><%= i.pay %></td>
