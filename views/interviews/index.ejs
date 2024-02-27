@@ -1,14 +1,29 @@
 <%- include('../partials/header') %>
 <link rel="stylesheet" href="/stylesheets/style.css">
+
+
+
 <table id="interviews">
     <thead>
       <tr>
         <th>List of All Interviews</th>
-        <link rel="stylesheet" href="/stylesheets/style.css">
         <a href="/interviews/new">Add Upcoming Interviews</a>
         <th></th>
       </tr>
     </thead>
+    <thead>
+		  <tr>
+			<th>Postion</th><th>Pay</th>
+			<th>When</th>
+		  </tr>
+		</thead>
+
+
+
+
+
+
+
     <tbody>
       <% interviewDocs.forEach(function(i) { %>
         <tr>
@@ -23,7 +38,7 @@
     
     </table>
     
-    <%- include('../partials/footer') %>
+   
 
 
 

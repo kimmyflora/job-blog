@@ -11,4 +11,7 @@ router.get('/new', interviewCtrl.new)
 //Post request to /movies
 router.post('/', interviewCtrl.create)
 
+//
+router.get('/:id', interviewCtrl.show)
+
 module.exports = router

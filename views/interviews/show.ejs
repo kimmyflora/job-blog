@@ -1,0 +1,55 @@
+<%- include('../partials/header') %>
+
+    <section id="show-page">
+        <div>Position: <%= interview.position %> </div>
+        <div>Pay <%= interview.pay %>  </div>
+        <div>When <%= interview.when %>   </div>
+        <div>Questions/Tips <%= interview.tips %>  </div>
+
+    </section>
+
+
+    <h2>Tips</h2>
+
+    <% if (user) { %>
+        <form id="add-tip-form" method="POST" action="/interviews/<%= interview._id %>/tips">
+            <label>Tips:</label>
+            <textarea name="content"></textarea>
+            <input type="submit" value="Add Tip">
+        </form>
+        <% } %>
+
+
+            <% if (interview.tips.length) { %>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Date</th>
+                            <th>Tip</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% interview.tips.forEach(function(t) { %>
+                            <tr>
+                                <td class="tip-user"><img alt="avatar" src="<%= t.userAvatar %>"
+                                        referrerpolicy="no-referrer">
+                                    <%= t.userName %>
+                                </td>
+                                <td>  <%= t.tip %> </td>
+                                <td>
+                                    <% if (user && user._id.equals(t.user)) { %>
+                                        <form action="/tips/<%= t._id %>?_method=DELETE" method="POST">
+                                            <button type="submit">X</button>
+                                        </form>
+                                        <% } %>
+                                </td>
+
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <% } else { %>
+                    <h5>No Tips Yet</h5>
+                    <% } %>
+                        <%- include('../partials/footer') %>
