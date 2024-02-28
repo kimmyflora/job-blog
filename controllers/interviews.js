@@ -13,9 +13,17 @@ module.exports = {
 
 //function for each interview
 
-function show(req, res) {
+async function show(req, res) {
 
     try {
+        
+        const interviewFromTheDatabase = await InterviewModel
+        .findById(req.params.id)
+        .populate('tips')
+        .exec()
+
+        console.log(interviewFromTheDatabase)
+
         res.render("interviews/show", {
             interview: interviewFromTheDatabase
 
@@ -37,6 +45,7 @@ async function create(req, res) {
         if (req.body[key] === "") delete req.body[key];
     }
     try {
+
         const interviewFromTheDatabase = await InterviewModel.create(req.body);
         console.log(interviewFromTheDatabase)
         res.redirect(`/interviews/${interviewFromTheDatabase._id}`);

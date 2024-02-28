@@ -1,10 +1,11 @@
 <%- include('../partials/header') %>
 
     <section id="show-page">
-        <div>Position: <%= interview.position %> </div>
-        <div>Pay <%= interview.pay %>  </div>
+        <div>Position: <%= interview.position %>  </div>
+        <div>Pay: <%= interview.pay %>  </div>
         <div>When <%= interview.when %>   </div>
-        <div>Questions/Tips <%= interview.tips %>  </div>
+        <div>Questions: <%= interview.advice %>  </div>
+
 
     </section>
 
@@ -12,7 +13,7 @@
     <h2>Tips</h2>
 
     <% if (user) { %>
-        <form id="add-tip-form" method="POST" action="/interviews/<%= interview._id %>/tips">
+        <form id="add-tip-form" method="post" action="/interviews/<%= interview._id %>/tips">
             <label>Tips:</label>
             <textarea name="content"></textarea>
             <input type="submit" value="Add Tip">
@@ -25,8 +26,8 @@
                     <thead>
                         <tr>
                             <th>User</th>
-                            <th>Date</th>
-                            <th>Tip</th>
+							<th>Date</th>
+                            <th>Tips/Advices</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,10 +37,12 @@
                                         referrerpolicy="no-referrer">
                                     <%= t.userName %>
                                 </td>
+                                <td>  <%=  t.content %> </td>
                                 <td>  <%= t.tip %> </td>
+
                                 <td>
                                     <% if (user && user._id.equals(t.user)) { %>
-                                        <form action="/tips/<%= t._id %>?_method=DELETE" method="POST">
+                                        <form action="/tips/<%= t._id %>?_method=DELETE" method="post">
                                             <button type="submit">X</button>
                                         </form>
                                         <% } %>

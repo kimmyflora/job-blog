@@ -9,6 +9,10 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK
 },
+
+
+
+
   async function (accessToken, refreshToken, profile, cb) {
     // a user has logged in via OAuth!
     // refer to the lesson plan from earlier today in order to set this up

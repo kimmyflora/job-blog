@@ -13,6 +13,7 @@ const methodOverride = require('method-override');
 //connect to the routes 
 const indexRoutes = require('./routes/index');
 const interviewRouter = require('./routes/interviews');
+const tipsRouter = require('./routes/tips');
 
 
 // create the Express app
@@ -58,6 +59,7 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRoutes);
 app.use('/interviews', interviewRouter);
+app.use('/', tipsRouter)
 
 
 // invalid request, send 404 page

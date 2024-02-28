@@ -9,12 +9,12 @@ const tipSchema = new Schema({
         required: true
     
     },
+
     user: {
         type: Schema.Types.ObjectId, // this is from mongoose
         ref: 'User' // this references this line mongoose.model('User', userSchema);
       },
-      userName: String,
-      userAvatar: String
+    
 })
 
 
@@ -24,7 +24,8 @@ const tipSchema = new Schema({
 const interviewSchema = new Schema({
     position: String,
     pay: String,
-    location: Date,
+    when: Date,
+    advice: String,
     tips: [tipSchema]
 
 })

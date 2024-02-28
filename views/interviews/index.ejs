@@ -1,52 +1,24 @@
 <%- include('../partials/header') %>
-<link rel="stylesheet" href="/stylesheets/style.css">
-
-
-
-<table id="interviews">
-    <thead>
-      <tr>
-        <th>List of All Interviews</th>
-        <a href="/interviews/new">Add Upcoming Interviews</a>
-        <th></th>
-      </tr>
-    </thead>
-    <thead>
+	<table id="list">
+		<thead>
 		  <tr>
-			<th>Postion</th><th>Pay</th>
-			<th>When</th>
+			<th>Position</th>
+			<th>Pay</th>
+      <th>When</th>
+			<th></th>
 		  </tr>
 		</thead>
-
-
-
-
-
-
-
-    <tbody>
-      <% interviewDocs.forEach(function(i) { %>
-        <tr>
-          <td><%= i.position %></td>
-          <td><%= i.pay %></td>
-          <td><%= i.location %></td>
-          <td><%= i.tips %></td>
-          <td><a href="/interviews/<%= i._id %>">DETAILS</a></td>
-        </tr>
-        <% }); %>
-      </tbody>
-    
-    </table>
-    
-   
-
-
-
-
-
-
-
-
-
-
+		<tbody>
+		  <% interviewDocs.forEach(function(i) { %>
+			<tr>
+			  <td><%= i.position %></td>
+			  <td><%= i.pay %></td>
+        <td><%= i.when %></td>
+			  <td><a href="/interviews/<%= i._id %>">DETAILS</a></td>
+			</tr>
+			<% }); %>
+		  </tbody>
+		
+		</table>
+		
 <%- include('../partials/footer') %>
