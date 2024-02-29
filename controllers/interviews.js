@@ -6,10 +6,25 @@ module.exports = {
     new: newInterview,
     create: create,
     index,
-    show
+    show,
+    
 
 
 }
+
+// fuction for editing a post
+
+  
+
+
+
+
+
+
+
+
+
+
 
 //function for each interview
 

@@ -1,19 +1,33 @@
 <%- include('../partials/header') %>
-		<h2>Add Upcoming Interview </h2>
-		<form action="/interviews" method="post">
-			<label>Position:
-				<input type="text" name="position">
-			</label><br>
-			<label>Pay:
-				<input type="text" name="pay">
-			</label><br>
-            <label for="when">Date of Interview:</label>
-            <input type="date" name="when" id="when"><br>
-			</label>
-			<label>Questions:
-				<input type="text" name="advice">
-			</label><br>
+	<h2>Add Upcoming Interview </h2>
 	
-			<button type="submit">Add Interview</button>
-		</form>
-<%- include('../partials/footer') %>
+		 <a href="/interviews">List of All Upcoming Interviews</a>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/stylesheets/style.css">
+<form action="/interviews" method="post">
+
+
+
+		
+		<table id="new">
+			<thead>
+				<tr>
+					<th>Position: <input type="text" name="position"></th>
+					<th>Pay:<input type="text" name="pay"></th>
+					<th>Date of Interview:<label for="when"></label>
+						<input type="date" name="when" id="when"></th>
+					<th>Questions: <input type="text" name="advice"></th>
+
+				</tr>
+			</thead>
+
+	
+
+		</table>
+
+
+
+		<button type="submit">Add Interview</button>
+	</form>
+	<%- include('../partials/footer') %>

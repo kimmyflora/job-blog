@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 const interviewCtrl = require('../controllers/interviews')
 
+
+
+// router to edit 
+
+
 // get request to interviews 
 router.get('/', interviewCtrl.index)
 

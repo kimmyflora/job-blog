@@ -1,20 +1,109 @@
 <%- include('../partials/header') %>
 
-    <section id="show-page">
-        <div>Position: <%= interview.position %>  </div>
-        <div>Pay: <%= interview.pay %>  </div>
-        <div>When <%= interview.when %>   </div>
-        <div>Questions: <%= interview.advice %>  </div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <a href="/interviews">All Upcoming Interviews</a>
 
 
-    </section>
+    <table  class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Position</th>
+            <th scope="col">Pay</th>
+            <th scope="col">When</th>
+            <th scope="col">Questions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><%= interview.position %></th>
+            <td><%= interview.pay %></td>
+            <td><%= interview.when %></td>
+            <td> <%= interview.advice %></td>
+          </tr>
+          <tr>
+         
+        </tbody>
+      </table>
+
+
+
 
 
     <h2>Tips</h2>
+<% if (user) { %>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">Add Tip</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <form id="add-tip-form" method="post" action="/interviews/<%= interview._id %>/tips">
+                        <label></label>
+                        <textarea name="content"></textarea>
+                </td>
+                <td>
+                        <input type="submit" value="Add Tip">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<% } %>
+
+<% if (interview.tips.length) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>User</th>
+                <th>Tips/Advices</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% interview.tips.forEach(function(t) { %>
+                <tr>
+                    <td class="tip-user"><img alt="anonymous" src="<%= t.userAvatar %>" referrerpolicy="no-referrer">
+                        <%= t.userName %>
+                    </td>
+                    <td>
+                        <%= t.content %>
+                    </td>
+                    <td>
+                        <% if (user && user._id.equals(t.user)) { %>
+                            <form action="/tips/<%= t._id %>?_method=DELETE" method="post">
+                                <button type="submit">X</button>
+                            </form>
+
+                            <form action="/tips/<%= t._id %>?_method=PUT" method="POST">
+                                <!-- Value attribute is being set to the comment's current text -->
+                                <input name="text" value="<%= t.text %>">
+                                <button type="submit">UPDATE COMMENT</button>
+                            </form>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h5>No Tips Yet</h5>
+<% } %>
+
+    
+
+
+
+
+
+<!-- 
 
     <% if (user) { %>
         <form id="add-tip-form" method="post" action="/interviews/<%= interview._id %>/tips">
-            <label>Tips:</label>
+            <label></label>
             <textarea name="content"></textarea>
             <input type="submit" value="Add Tip">
         </form>
@@ -26,26 +115,42 @@
                     <thead>
                         <tr>
                             <th>User</th>
-							<th>Date</th>
                             <th>Tips/Advices</th>
                         </tr>
                     </thead>
                     <tbody>
                         <% interview.tips.forEach(function(t) { %>
                             <tr>
-                                <td class="tip-user"><img alt="avatar" src="<%= t.userAvatar %>"
+                                <td class="tip-user"><img alt="anonymous" src="<%= t.userAvatar %>"
                                         referrerpolicy="no-referrer">
                                     <%= t.userName %>
                                 </td>
-                                <td>  <%=  t.content %> </td>
-                                <td>  <%= t.tip %> </td>
+                                <td>
+                                    <%= t.content %>
+                                </td>
+                                <td>
+                                    <%= t.tip %>
+                                </td>
 
                                 <td>
                                     <% if (user && user._id.equals(t.user)) { %>
                                         <form action="/tips/<%= t._id %>?_method=DELETE" method="post">
                                             <button type="submit">X</button>
                                         </form>
+
+                                        <form action="/tips/<%= t._id %>?_method=PUT" method="POST">
+                                            <!-- Value attribute is being set to the comment's current text -->
+                                            <input name="text" value="<%= t.text %>">
+                                            <button type="submit">UPDATE COMMENT</button>
+                                          </form>
+
+
                                         <% } %>
+
+
+
+
+
                                 </td>
 
                             </tr>
@@ -54,5 +159,5 @@
                 </table>
                 <% } else { %>
                     <h5>No Tips Yet</h5>
-                    <% } %>
+                    <% } %> -->
                         <%- include('../partials/footer') %>
