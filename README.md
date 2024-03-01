@@ -5,7 +5,7 @@ Job Blog is a community-driven blog platform where job seekers can share details
 
 Uses Node/Express/MongoDB
 
-Link -> https://puzzled-colt-long-johns.cyclic.app/interviews
+Link -> https://puzzled-colt-long-johns.cyclic.app
 
 Click on All Upcoming Interviews to see! 
  
