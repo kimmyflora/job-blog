@@ -8,23 +8,49 @@
 <form action="/interviews" method="post">
 
 
-
-		
-		<table id="new">
-			<thead>
-				<tr>
-					<th>Position: <input type="text" name="position"></th>
-					<th>Pay:<input type="text" name="pay"></th>
-					<th>Date of Interview:<label for="when"></label>
-						<input type="date" name="when" id="when"></th>
-					<th>Questions: <input type="text" name="advice"></th>
-
-				</tr>
-			</thead>
-
+	<table id="new">
+		<tr>
+			<th>
+				Position: <input type="text" name="position">
+			</th>
+		</tr>
+		<tr>
+			<th>
+				Pay: <input type="text" name="pay">
+			</th>
+		</tr>
+		<tr>
+			<th>
+				Date of Interview: <label for="when"></label>
+				<input type="date" name="when" id="when">
+			</th>
+		</tr>
+		<tr>
+			<th>
+				Questions: <input type="text" name="advice">
+			</th>
+		</tr>
+	</table>
+	<style>
+		#new {
+			width: 100%;
+			border-collapse: collapse;
+			text-align: center;
+		}
 	
-
-		</table>
+		#new th {
+			padding: 10px;
+		}
+	
+		#new input[type="text"],
+		#new input[type="date"] {
+			width: 100%;
+			padding: 5px;
+			box-sizing: border-box;
+		}
+	</style>
+	
+		
 
 
 

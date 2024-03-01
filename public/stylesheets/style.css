@@ -1,3 +1,10 @@
+* {
+  box-sizing: border-box;
+  font-family: Helvetica;
+ 
+}
+
+
 .brand-logo {
   margin-left: 15px;
 }
@@ -20,6 +27,7 @@
 }
 
 body{
+  
   text-align: center;
   background-color: pink;
   font-size: 20px;

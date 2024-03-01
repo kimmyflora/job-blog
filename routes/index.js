@@ -18,7 +18,7 @@ res.render('index')
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
-  { scope: ['profile', 'email'] }
+  { scope: ['profile', 'email'],}
 ));
 
 // Google OAuth callback route

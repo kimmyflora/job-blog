@@ -64,6 +64,7 @@ async function create(req, res) {
         interviewDoc.tips.push(req.body);
         await interviewDoc.save()
         res.redirect(`/interviews/${req.params.id}`)
+        
     } catch (err) {
         console.log(err)
         res.send(err)

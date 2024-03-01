@@ -12,20 +12,6 @@ module.exports = {
 
 }
 
-// fuction for editing a post
-
-  
-
-
-
-
-
-
-
-
-
-
-
 //function for each interview
 
 async function show(req, res) {
